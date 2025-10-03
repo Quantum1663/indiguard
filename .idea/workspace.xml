@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1556830e-117e-41d9-9a43-9621afccbd91" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/indiguard.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/streamlit_app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infra/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infra/env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infra/sql/001_init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infra/sql/002_consistency.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infra/topics.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway/normalize_worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/gateway/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ingest/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ingest/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/ingest/rss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/media_consistency/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/media_consistency/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/media_consistency/worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/persister/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/persister/persist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/persister/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/text_svc/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/text_svc/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/text_svc/worker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ws.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="339tlpQo304OOAbs2kr6nzkp1ni" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.API.executor": "Coverage",
+    "Python.APi.executor": "Run",
+    "Python.Ingest.executor": "Coverage",
+    "Python.Text Worker.executor": "Run",
+    "Python.train_text_lora.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "I do mind",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ansar\PycharmProjects\indiguard\infra\services" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-PY-252.25557.178" />
+        <option value="bundled-python-sdk-ce6832f46686-7b97d883f26b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.25557.178" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1556830e-117e-41d9-9a43-9621afccbd91" name="Changes" comment="" />
+      <created>1758741270511</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758741270511</updated>
+      <workItem from="1758741271615" duration="3792000" />
+      <workItem from="1758785777799" duration="11281000" />
+      <workItem from="1759387385639" duration="27882000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/indiguard$Text_Worker.coverage" NAME="Text Worker Coverage Results" MODIFIED="1759388005757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\ansar\PycharmProjects\indiguard\infra\services\text_worker" />
+    <SUITE FILE_PATH="coverage/indiguard$train_text_lora.coverage" NAME="train_text_lora Coverage Results" MODIFIED="1759388024245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/infra/training" />
+    <SUITE FILE_PATH="coverage/indiguard$APi.coverage" NAME="APi Coverage Results" MODIFIED="1758790288054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\ansar\PycharmProjects\indiguard\infra\services\api" />
+    <SUITE FILE_PATH="coverage/indiguard$API.coverage" NAME="API Coverage Results" MODIFIED="1758788200137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\ansar\PycharmProjects\indiguard\infra\services\api" />
+    <SUITE FILE_PATH="coverage/indiguard$Ingest.coverage" NAME="Ingest Coverage Results" MODIFIED="1758790632764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\ansar\PycharmProjects\indiguard\infra\services\ingest" />
+  </component>
+</project>

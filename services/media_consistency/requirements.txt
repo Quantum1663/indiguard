@@ -1,0 +1,6 @@
+aiokafka
+transformers
+torch
+pillow
+requests
+pytesseract

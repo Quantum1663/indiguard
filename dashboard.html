@@ -1,0 +1,45 @@
+<!doctype html><meta charset="utf-8"/>
+<title>IndiGuard – Live</title>
+<style>
+body{font-family:system-ui,Arial;margin:20px}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid #ddd;padding:8px}
+th{background:#f2f2f2;text-align:left}
+#alerts{white-space:pre;font:12px/1.4 monospace;background:#111;color:#0f0;padding:8px;height:180px;overflow:auto}
+</style>
+<h2>Recent Predictions</h2>
+<button id="refresh">Refresh</button>
+<table id="tbl"><thead><tr>
+<th>Time</th><th>Label</th><th>Conf</th><th>Lang</th><th>URL</th><th>Snippet</th>
+</tr></thead><tbody></tbody></table>
+
+<h2>Live Alerts</h2>
+<div id="alerts"></div>
+
+<script>
+async function loadRecent(){
+  const r = await fetch('/recent?n=20');
+  const data = await r.json();
+  const tb = document.querySelector('#tbl tbody'); tb.innerHTML='';
+  for(const row of data){
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${new Date(row.created_at||row.created_at_utc||Date.now()).toLocaleString()}</td>
+      <td>${row.top_label}</td><td>${(row.confidence||0).toFixed(2)}</td>
+      <td>${row.lang||''}</td>
+      <td>${row.url?`<a href="${row.url}" target="_blank">link</a>`:''}</td>
+      <td>${row.snippet||''}</td>`;
+    tb.appendChild(tr);
+  }
+}
+document.getElementById('refresh').onclick = loadRecent;
+loadRecent(); setInterval(loadRecent, 5000);
+
+// live alerts
+const log = msg => { const el=document.getElementById('alerts'); el.textContent+=msg+"\n"; el.scrollTop=el.scrollHeight; };
+try{
+  const ws = new WebSocket('ws://localhost:8000/ws/alerts');
+  ws.onopen=()=>log('[ws] connected');
+  ws.onmessage=e=>log(e.data);
+  ws.onerror=()=>log('[ws] error');
+}catch(e){ log('[ws] failed: '+e.message); }
+</script>

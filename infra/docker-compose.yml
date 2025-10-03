@@ -1,0 +1,123 @@
+version: "3.9"
+services:
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.2.8
+    command:
+      - redpanda start
+      - --overprovisioned
+      - --smp=1
+      - --memory=1G
+      - --reserve-memory=0M
+      - --node-id=0
+      - --check=false
+      - --kafka-addr=PLAINTEXT://0.0.0.0:9092,OUTSIDE://0.0.0.0:29092
+      - --advertise-kafka-addr=PLAINTEXT://redpanda:9092,OUTSIDE://localhost:29092
+    ports: [ "29092:29092" ]
+    healthcheck:
+      test: [ "CMD", "bash", "-lc", "rpk cluster info --brokers redpanda:9092 >/dev/null 2>&1" ]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: indiguard
+    # map host 5433 -> container 5432
+    ports: [ "5433:5432" ]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d indiguard" ]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  persister:
+    build: ../services/persister
+    environment:
+      KAFKA_BROKER: redpanda:9092
+      PGHOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: indiguard
+      PGPORT: "5432"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  gateway:
+    build: ../services/gateway
+    environment:
+      KAFKA_BROKER: redpanda:9092
+      PGHOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: indiguard
+      PGPORT: "5432"
+    depends_on:
+      redpanda:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    ports: [ "8000:8000" ]
+
+  normalizer:
+    build: ../services/gateway
+    command: ["python","normalize_worker.py"]
+    environment: [KAFKA_BROKER=redpanda:9092]
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    restart: unless-stopped
+
+  text_svc:
+    build: ../services/text_svc
+    environment: [ KAFKA_BROKER=redpanda:9092 ]
+    depends_on:
+      redpanda:
+        condition: service_started
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+
+  media_consistency:
+    build: ../services/media_consistency
+    environment:
+      KAFKA_BROKER: redpanda:9092
+    depends_on:
+      redpanda:
+        condition: service_started
+    # optional cache
+    volumes:
+      - hf_cache:/root/.cache/huggingface
+
+
+  ingest:
+    build: ../services/ingest
+    environment: [KAFKA_BROKER=redpanda:9092]
+    depends_on:
+      redpanda:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ../frontend
+    environment:
+      API_BASE: http://gateway:8000
+      WS_URL: ws://gateway:8000/ws/alerts
+    depends_on:
+      gateway:
+        condition: service_started
+    ports: [ "8501:8501" ]
+
+
+volumes:
+  pgdata:
+  hf_cache:

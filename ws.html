@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><pre id="out"></pre>
+<script>
+const o=document.getElementById('out');
+const ws=new WebSocket('ws://localhost:8000/ws/alerts');
+ws.onopen=()=>o.textContent+='[ws] connected\n';
+ws.onmessage=e=>o.textContent+=e.data+"\n";
+ws.onerror=e=>o.textContent+='[ws] error\n';
+</script>
